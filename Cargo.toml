@@ -1,0 +1,9 @@
+[package]
+name = "rust-oms"
+version = "1.0.0"
+edition = "2018"
+
+[dependencies]
+iron = "*"
+router = "*"
+rustc-serialize = "*"
