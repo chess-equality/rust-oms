@@ -20,5 +20,5 @@ RUN         touch src/main.rs && cargo build --release --target x86_64-unknown-l
 
 # Production container
 FROM        scratch
-COPY        --from=builder /rust/app/target/x86_64-unknown-linux-musl/release/microservice_app /app
-ENTRYPOINT  ["/app"]
+COPY        --from=builder /rust/app/target/x86_64-unknown-linux-musl/release/rust-oms /rust-oms
+ENTRYPOINT  ["/rust-oms"]
