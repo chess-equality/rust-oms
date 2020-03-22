@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: rust-oms
+  labels:
+    app: rust-oms
+spec:
+  type: NodePort
+  selector:
+    app: rust-oms
+  ports:
+    - port: 8080
+      targetPort: 8080
+      name: http
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: rust-oms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rust-oms
+  template:
+    metadata:
+      labels:
+        app: rust-oms
+        version: v1
+    spec:
+      containers:
+        - name: rust-oms
+          image: chessequality/rust-oms
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+---

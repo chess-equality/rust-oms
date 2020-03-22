@@ -2,8 +2,20 @@
 
 Microservices using the Rust OMS template.
 
+Build
+-----
+
+```sh
+run --package rust-oms --bin rust-oms
+```
+
 Usage
 -----
+
+```curl
+# curl
+curl -i -X POST -H "Content-Type: application/json" -d '{ "name": "World!" } ' http://localhost:8080/message
+```
 
 ```coffee
 # Storyscript
